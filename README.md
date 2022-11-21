@@ -12,7 +12,7 @@ Lokaverkefni Kristófer og Þórður
 ## Íhlutir
 
 DHT22
-ASAIR AM2301
+ASAIR AM2301 \n
 ESP
 RaspberryPi
 Vatnsdæla
