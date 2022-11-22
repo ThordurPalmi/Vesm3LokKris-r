@@ -28,3 +28,8 @@ Vatnsdæla
 2x NRF24L01
 
 2x Loftnet
+
+
+## Linkar
+
+https://create.arduino.cc/projecthub/muhammad-aqib/nrf24l01-interfacing-with-arduino-wireless-communication-0c13d4
