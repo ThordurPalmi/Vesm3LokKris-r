@@ -32,6 +32,6 @@ Vatnsdæla
 
 ## Linkar
 
-https://create.arduino.cc/projecthub/muhammad-aqib/nrf24l01-interfacing-with-arduino-wireless-communication-0c13d4
+nRF24L01 sending  https://create.arduino.cc/projecthub/muhammad-aqib/nrf24l01-interfacing-with-arduino-wireless-communication-0c13d4
 
 https://github.com/bjarne-hansen/py-nrf24
