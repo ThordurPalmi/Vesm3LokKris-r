@@ -11,23 +11,23 @@ Lokaverkefni Kristófer og Þórður
 
 ## Íhlutir
 
-DHT22
+- DHT22
 
-ASAIR AM2301
+- ASAIR AM2301
 
-ESP
+- ESP
 
-RaspberryPi
+- RaspberryPi
 
-Vatnsdæla
+- Vatnsdæla
 
-2x MH Water Sensor
+- 2x MH Water Sensor
 
-2x HW-237
+- 2x HW-237
 
-2x NRF24L01
+- 2x NRF24L01
 
-2x Loftnet
+- 2x Loftnet
 
 
 ## Linkar
