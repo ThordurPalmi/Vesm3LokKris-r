@@ -5,7 +5,7 @@ Lokaverkefni Kristófer og Þórður
 Upprunalega hugmindin var að gera dælubúnað sem ætti að fara ofan í brunndælukassa sem á það til að fyllast af vatni. Búnaðurinn var hugsaður þannig að vera með tvo hitaskynjara einn sem væri í kassanum utan um esp32 og hinn í utan á kassanum til að fylgjast með brunndælunni, síðan eiga að vera tveir vatns hæðaskynjarar sem er settir ofan á hvorn annan geta mælt allt að 100mm af vatsn hæð. Síðan var hugsunin að vera með tvö relay eitt til að kveikja á 12v lensi dælu til að dæla upp úr brunndælu kassanum, og hitt til að kveikja á 240v hita streng ef hitin færi undir x°C. Síðan fyrir samskipti þar sem að við þurfum að senda gögn yfir 100m vorum við að fyrst að hugsa LORA network-ið eða 2.4Ghz útvarps samskipti 
 
 ## Lýsing
-Í Bunndælu kassanum verður ESP32 sem keyrir C++ arduino kóða við hann eru tengdir báðir hita og rakaskynjaranir, NRF24 útvarpssamskipta módullinn og tvö relay til að stjórna lensi dælu og hitastreng
+Í Bunndælu kassanum verður ESP32 sem keyrir C++ arduino kóða við hann eru tengdir báðir hita og rakaskynjaranir, tveir vatshæðanemar, NRF24 útvarpssamskipta módullinn og tvö relay til að stjórna lensi dælu og hitastreng
 120m í burtu inn í sumarbústað er raspberry pi zero sem keyrir python og við hann væri eingöngu tengdur NRF24 útvarpssamskipta módullinn. hún keyrir síðan gögnin upp í hýstan flask vef sem sér um að birta gögnin
 
 ## Myndbönd
@@ -13,6 +13,42 @@ Upprunalega hugmindin var að gera dælubúnað sem ætti að fara ofan í brunn
 ## Samsetning
 
 ## Kóði
+NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
+                  [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
+Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
+
+Arduino
+
+    // Config fyrir NRF24 útvarpsendi
+    static char send_payload[256];
+
+    const int min_payload_size = 16;
+    const int max_payload_size = 32;
+    const int payload_size_increments_by = 1;
+    int next_payload_size = min_payload_size;
+
+    // CE = pin 22, CSN = pin 21
+    RF24 radio(22, 21 );
+
+    // Addressur ein til að hlusta á og hin til að skrifa á sem v+ixlast síðan á hinni nóðuni
+    const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
+    char receive_payload[max_payload_size + 1];
+    String message = "";
+    
+    void setup()
+    {
+      Serial.begin(115200);
+
+      // ----- Radio Setup ----------
+      radio.begin();
+      // enable dynamic payloads
+      radio.enableDynamicPayloads();
+      radio.setRetries(5, 15);
+
+      radio.openWritingPipe(pipes[0]);
+      radio.openReadingPipe(1, pipes[1]);
+      radio.startListening();  
+    }
 
 ## Íhlutir
 
