@@ -6,6 +6,8 @@ Upprunalega hugmindin var að gera dælubúnað sem ætti að fara ofan í brunn
 
 ## Lýsing
 Í Bunndælu kassanum verður ESP32 sem keyrir C++ arduino kóða við hann eru tengdir báðir hita og rakaskynjaranir, tveir vatshæðanemar, NRF24 útvarpssamskipta módullinn og tvö relay til að stjórna lensi dælu og hitastreng
+
+
 120m í burtu inn í sumarbústað er raspberry pi zero sem keyrir python og við hann væri eingöngu tengdur NRF24 útvarpssamskipta módullinn. hún keyrir síðan gögnin upp í hýstan flask vef sem sér um að birta gögnin
 
 ## Myndbönd
@@ -13,8 +15,12 @@ Upprunalega hugmindin var að gera dælubúnað sem ætti að fara ofan í brunn
 ## Samsetning
 
 ## Kóði
-NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
-                  [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
+NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] pyth
+
+
+[0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
+                  
+                  
 Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
 
 Arduino
