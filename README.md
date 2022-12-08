@@ -14,7 +14,7 @@ Upprunalega hugmindin var að gera dælubúnað sem ætti að fara ofan í brunn
 ## Samsetning
 
 ## Kóði
-NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] pyth
+NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
 
 [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
                                 
