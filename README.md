@@ -19,6 +19,36 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 
 
 ## Samsetning
+
+ESP32 
+
+### NRF24
+
+CE > 22
+CSN > 21
+SCK > 18
+M0 > 23
+M1 > 19
+
+### AM2301
+
+Signa > 15
+
+### DHT22
+
+Out > 32
+
+### Vatns skynjari 1
+
+S > VP (Gpio 36)
+
+### Vatns skynjari 2
+
+S > VN (Gpio 39)
+
+
+
+
 <html>
 <img src="https://raw.githubusercontent.com/ThordurPalmi/Vesm3LokKris-r/main/finalTenging.jpg" alt="Samsetning" style="width:100%; max-width:300px;">
 </html>
@@ -28,7 +58,7 @@ NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
 
 [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
                                 
-Arduino
+ESP32
 
     // Config fyrir NRF24 útvarpsendi
     static char send_payload[256];
@@ -61,7 +91,7 @@ Arduino
       radio.startListening();  
     }
 
-Python
+Raspberry Pi
 
       from circuitpython_nrf24l01.rf24 import RF24
       import spidev
