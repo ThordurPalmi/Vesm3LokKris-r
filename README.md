@@ -20,31 +20,31 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 
 ## Samsetning
 
-ESP32 
+## ESP32 
 
 ### NRF24
 
-CE > 22
-CSN > 21
-SCK > 18
-M0 > 23
-M1 > 19
+* CE > 22
+* CSN > 21
+* SCK > 18
+* M0 > 23
+* M1 > 19
 
 ### AM2301
 
-Signa > 15
+* Signa > 15
 
 ### DHT22
 
-Out > 32
+* Out > 32
 
 ### Vatns skynjari 1
 
-S > VP (Gpio 36)
+* S > VP (Gpio 36)
 
 ### Vatns skynjari 2
 
-S > VN (Gpio 39)
+* S > VN (Gpio 39)
 
 
 
