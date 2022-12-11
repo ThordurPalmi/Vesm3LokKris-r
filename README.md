@@ -2,12 +2,14 @@
 Lokaverkefni Kristófer og Þórður
 
 ## Hugmyndin
-Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunndælukassa sem á það til að fyllast af vatni. Búnaðurinn var hugsaður þannig að vera með tvo hitaskynjara einn sem væri í kassanum utan um esp32 og hinn í utan á kassanum til að fylgjast með brunndælunni, síðan eiga að vera tveir vatns hæðaskynjarar sem er settir ofan á hvorn annan geta mælt allt að 100mm af vatsn hæð. Síðan var hugsunin að vera með tvö relay eitt til að kveikja á 12v lensi dælu til að dæla upp úr brunndælu kassanum, og hitt til að kveikja á 240v hita streng ef hitin færi undir x°C. Síðan fyrir samskipti þar sem að við þurfum að senda gögn yfir 100m vorum við að fyrst að hugsa LORA network-ið eða 2.4Ghz útvarps samskipti 
+Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunndælukassa sem á það til að fyllast af vatni. Búnaðurinn var hugsaður þannig að vera með tvo hitaskynjara einn sem væri í boxinu með esp32 og hinn í utan á boxinu inn í dælukassanum atil fylgjast með brunndælunni, síðan eiga að vera tveir vatns hæðaskynjarar sem er settir ofan á hvorn annan geta mælt allt að 100mm af vatsn hæð. Síðan var hugsunin að vera með tvö relay eitt til að kveikja á 12v vatnsdælu til að dæla upp úr dælukassanum, og hitt til að kveikja á 240v hita streng ef hitin færi undir x°C. Síðan fyrir samskipti þar sem að við þurfum að senda gögn yfir 100m vorum við að fyrst að hugsa LORA network-ið eða 2.4Ghz útvarps samskipti 
 
 ## Lýsing
 Í Bunndælu kassanum verður ESP32 sem keyrir C++ arduino kóða við hann eru tengdir báðir hita og rakaskynjaranir, tveir vatshæðanemar, NRF24 útvarpssamskipta módullinn og tvö relay til að stjórna lensi dælu og hitastreng
 
 120m í burtu inn í sumarbústað er raspberry pi zero sem keyrir python og við hann væri eingöngu tengdur NRF24 útvarpssamskipta módullinn. hún keyrir síðan gögnin upp í hýstan flask vef sem sér um að birta gögnin
+
+Útvarps samskeitin nota svokallaðar gagna pípur, Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
 
 ## Myndbönd
 
@@ -18,8 +20,6 @@ NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
 
 [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL] C++
                                 
-Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
-
 Arduino
 
     // Config fyrir NRF24 útvarpsendi
@@ -52,6 +52,35 @@ Arduino
       radio.openReadingPipe(1, pipes[1]);
       radio.startListening();  
     }
+
+Python
+
+      from circuitpython_nrf24l01.rf24 import RF24
+      import spidev
+
+      SPI_BUS, CSN_PIN, CE_PIN = (None, None, None)
+
+
+      SPI_BUS = spidev.SpiDev() 
+      CSN_PIN = 0  
+      CE_PIN = DigitalInOut(board.D22) 
+      SPI_BUS = board.SPI() 
+      CE_PIN = DigitalInOut(board.D4)
+      CSN_PIN = DigitalInOut(board.D5)
+
+      nrf = RF24(SPI_BUS, CSN_PIN, CE_PIN)
+
+      nrf.pa_level = -12
+
+      # pípurnar í c++ eru þær [0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL]
+      address = [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0']
+
+      # skrifar í pípu 2
+      nrf.open_tx_pipe(address[1])  
+
+      # hlustar á pípu 1
+      nrf.open_rx_pipe(1, address[0])  # using pipe 1
+
 
 ## Íhlutir
 
