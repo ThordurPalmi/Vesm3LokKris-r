@@ -14,6 +14,7 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 ## Myndbönd
 
 ## Samsetning
+![Image of a final connection](https://raw.githubusercontent.com/ThordurPalmi/Vesm3LokKris-r/main/finalTenging.jpg){:width="300px" height="200px"}
 
 ## Kóði
 NRF pípur notaðar [b'\xe1\xf0\xf0\xf0\xf0', b'\xd2\xf0\xf0\xf0\xf0'] python
