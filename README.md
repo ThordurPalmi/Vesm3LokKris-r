@@ -12,10 +12,9 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 Útvarps samskeitin nota svokallaðar gagna pípur, Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
 
 ## Myndbönd
-<html>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QCcgZkiqZB0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</html>
+[!Video](http://img.youtube.com/vi/A4VchyImY9A/0.jpg)](http://www.youtube.com/watch?v=A4VchyImY9A "Video Title")
+
+
 ## Samsetning
 <html>
 <img src="https://raw.githubusercontent.com/ThordurPalmi/Vesm3LokKris-r/main/finalTenging.jpg" alt="Samsetning" style="width:100%; max-width:300px;">
