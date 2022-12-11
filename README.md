@@ -113,6 +113,8 @@ Python
 
 ## Linkar
 
+NRF24 RPi og arduino  https://medium.com/@anujdev11/communication-between-arduino-and-raspberry-pi-using-nrf24l01-818687f7f363
+
 nRF24L01 sending  https://create.arduino.cc/projecthub/muhammad-aqib/nrf24l01-interfacing-with-arduino-wireless-communication-0c13d4
 
 nrf24 - https://github.com/bjarne-hansen/py-nrf24
