@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .dashboard-box {
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    /* Add styles for the button here */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .button:hover {
+      background-color: #3e8e41
+    }
+
+    .button:active {
+      background-color: #3e8e41;
+      transform: translateY(4px);
+    }
+  </style>
+</head>
+<body>
+  {% if gogn|length > 0 %}
+  {% set last_entry = gogn[-1] %}
+
+  {% set Am2301_values = last_entry.Am2301.split(":") %}
+  {% set dht22_values = last_entry.dht22.split(":") %}
+
+  <div class="dashboard-box">
+      <p>Am2301: {{ Am2301_values[0]|float / 10 }}°C {{ Am2301_values[1]|float / 10 }}%</p>
+  </div>
+  <div class="dashboard-box">
+      <p>Vatnsh: {{ last_entry.Vatnsh }}</p>
+  </div>
+  <div class="dashboard-box">
+      <p>dht22: {{ dht22_values[0]|float / 10 }}°C {{ dht22_values[1]|float / 10 }}%</p>
+  </div>
+
+  <div class="dashboard-box">
+      <p>timestamp: {{ last_entry.timestamp }}</p>
+  </div>
+
+  <!-- Add the button here -->
+  <a href="/refresh" class="button">Refresh</a>
+
+  {% endif %}
+</body>
+</html>
