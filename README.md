@@ -16,8 +16,6 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/A4VchyImY9A/0.jpg)](http://www.youtube.com/watch?v=A4VchyImY9A "Video Title")
 
 
-
-
 ## Samsetning
 
 ## ESP32 
@@ -46,6 +44,15 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 
 * S > VN (Gpio 39)
 
+## Raspberry Pi
+
+### NRF24
+
+* CE > 22
+* CSN > 21
+* SCK > 18
+* M0 > 23
+* M1 > 19
 
 
 
