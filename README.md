@@ -2,7 +2,7 @@
 Lokaverkefni Kristófer og Þórður
 
 ## Hugmyndin
-Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunndælukassa sem á það til að fyllast af vatni. Búnaðurinn var hugsaður þannig að vera með tvo hitaskynjara einn sem væri í boxinu með esp32 og hinn í utan á boxinu inn í dælukassanum atil fylgjast með brunndælunni, síðan eiga að vera tveir vatns hæðaskynjarar sem er settir ofan á hvorn annan geta mælt allt að 100mm af vatsn hæð. Síðan var hugsunin að vera með tvö relay eitt til að kveikja á 12v vatnsdælu til að dæla upp úr dælukassanum, og hitt til að kveikja á 240v hita streng ef hitin færi undir x°C. Síðan fyrir samskipti þar sem að við þurfum að senda gögn yfir 100m vorum við að fyrst að hugsa LORA network-ið eða 2.4Ghz útvarps samskipti 
+Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunndælukassa sem á það til að fyllast af vatni. Búnaðurinn var hugsaður þannig að vera með tvo hitaskynjara einn sem væri í boxinu með esp32 og hinn utan á boxinu inn í dælukassanum til að fylgjast með brunndælunni, síðan eiga að vera tveir vatnshæðaskynjarar sem er settir ofan á hvorn annan geta mælt allt að 100mm af vatns hæð. Síðan var hugsunin að vera með tvö relay eitt til að kveikja á 12v vatnsdælu til að dæla upp úr dælukassanum, og hitt til að kveikja á 240v hita streng ef hitin færi undir x°C. Síðan fyrir samskipti þar sem að við þurfum að senda gögn yfir 100m vorum við að fyrst að hugsa LORA network-ið eða 2.4Ghz útvarps samskipti 
 
 ## Lýsing
 Í Bunndælu kassanum verður ESP32 sem keyrir C++ arduino kóða við hann eru tengdir báðir hita og rakaskynjaranir, tveir vatshæðanemar, NRF24 útvarpssamskipta módullinn og tvö relay til að stjórna lensi dælu og hitastreng
@@ -41,7 +41,7 @@ Arduino
     // CE = pin 22, CSN = pin 21
     RF24 radio(22, 21 );
 
-    // Addressur ein til að hlusta á og hin til að skrifa á sem v+ixlast síðan á hinni nóðuni
+    // Addressur ein til að hlusta á og hin til að skrifa á sem víxlast síðan á hinni nóðuni
     const uint64_t pipes[2] = { 0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL };
     char receive_payload[max_payload_size + 1];
     String message = "";
