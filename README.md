@@ -12,7 +12,9 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 Útvarps samskeitin nota svokallaðar gagna pípur, Hvor pípan fer í aðra áttina þannig að ESP32 skrifar í fyrstu or raspberry pi hlusta og öfugt með seinni pípuna         
 
 ## Myndbönd
-[[!Video](http://img.youtube.com/vi/A4VchyImY9A/0.jpg)](http://www.youtube.com/watch?v=A4VchyImY9A "Video Title")
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/A4VchyImY9A/0.jpg)](http://www.youtube.com/watch?v=A4VchyImY9A "Video Title")
+
 
 
 
