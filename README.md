@@ -48,11 +48,11 @@ Upprunalega hugmyndin var að gera dælubúnað sem ætti að fara ofan í brunn
 
 ### NRF24
 
-* CE > 22
-* CSN > 21
-* SCK > 18
-* M0 > 23
-* M1 > 19
+* CE > 15 (Gpio 22)
+* CSN > 24 (Gpio 8)
+* SCK > 23 (Gpio 11)
+* M0 > 19 (Gpio 10)
+* M1 > 21 (Gpio 9)
 
 
 
